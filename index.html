@@ -119,35 +119,36 @@
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased">
 
-  <!-- ==================== NAVBAR ==================== -->
-  <nav class="fixed top-4 left-4 right-4 z-50 bg-primary-900/90 backdrop-blur-md rounded-2xl shadow-lg shadow-primary-900/30 border border-white/10">
-    <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
-      <a href="#" class="font-heading font-bold text-lg text-white cursor-pointer">
+  <!-- ==================== HEADER ==================== -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#" id="logo-text" class="font-heading font-bold text-lg text-white transition-colors duration-300 cursor-pointer">
         Susanna<span class="text-accent-500">.</span>dev
       </a>
 
       <!-- Desktop Menu -->
       <div class="hidden md:flex items-center gap-8">
-        <a href="#servicos" class="text-sm font-medium text-primary-200 hover:text-white transition-colors duration-200 cursor-pointer">Serviços</a>
-        <a href="#portfolio" class="text-sm font-medium text-primary-200 hover:text-white transition-colors duration-200 cursor-pointer">Portfólio</a>
-        <a href="#faq" class="text-sm font-medium text-primary-200 hover:text-white transition-colors duration-200 cursor-pointer">FAQ</a>
+        <a href="#servicos" class="nav-link text-sm font-medium text-primary-200 hover:text-white transition-colors duration-200 cursor-pointer">Serviços</a>
+        <a href="#portfolio" class="nav-link text-sm font-medium text-primary-200 hover:text-white transition-colors duration-200 cursor-pointer">Portfólio</a>
+        <a href="#faq" class="nav-link text-sm font-medium text-primary-200 hover:text-white transition-colors duration-200 cursor-pointer">FAQ</a>
       </div>
 
       <!-- Mobile Menu Toggle -->
-      <button id="menu-toggle" class="md:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors duration-200 cursor-pointer" aria-label="Abrir menu de navegação">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      <button id="menu-btn" onclick="toggleMenu()" class="md:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors duration-200 cursor-pointer" aria-label="Abrir menu de navegação">
+        <svg id="icon-hamburger" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        <svg id="icon-close" class="hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
       </button>
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-      <div class="flex flex-col gap-3 pt-2 border-t border-white/10">
-        <a href="#servicos" class="text-sm font-medium text-primary-200 hover:text-white py-2 cursor-pointer">Serviços</a>
-        <a href="#portfolio" class="text-sm font-medium text-primary-200 hover:text-white py-2 cursor-pointer">Portfólio</a>
-        <a href="#faq" class="text-sm font-medium text-primary-200 hover:text-white py-2 cursor-pointer">FAQ</a>
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 px-6 pb-4">
+      <div class="flex flex-col gap-1 pt-2">
+        <a href="#servicos" onclick="closeMenu()" class="text-primary-800 hover:text-primary-900 text-sm font-medium py-3 cursor-pointer">Serviços</a>
+        <a href="#portfolio" onclick="closeMenu()" class="text-primary-800 hover:text-primary-900 text-sm font-medium py-3 cursor-pointer">Portfólio</a>
+        <a href="#faq" onclick="closeMenu()" class="text-primary-800 hover:text-primary-900 text-sm font-medium py-3 cursor-pointer">FAQ</a>
       </div>
     </div>
-  </nav>
+  </header>
 
   <!-- ==================== HERO SECTION ==================== -->
   <section class="bg-white pt-28 lg:pt-36 pb-20 lg:pb-32 overflow-hidden relative">
@@ -190,7 +191,7 @@
             <!-- Search Bar -->
             <div class="absolute top-4 left-4 right-4 z-20 bg-white rounded-xl shadow-md border border-slate-200/80 px-4 py-2.5 flex items-center gap-3">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-              <span class="text-slate-400 text-sm font-body">dentista perto de mim</span>
+              <span class="text-slate-400 text-sm font-body">barbearias perto de mim</span>
             </div>
 
             <!-- Map Grid Lines -->
@@ -623,28 +624,28 @@
   </section>
 
   <!-- ==================== PORTFOLIO ==================== -->
-  <section id="portfolio" class="py-20 md:py-28 bg-primary-900">
+  <section id="portfolio" class="py-20 md:py-28 bg-slate-100">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-16">
-        <span class="inline-block text-accent-400 text-sm font-semibold tracking-wider uppercase mb-3">Portfólio</span>
-        <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mb-4">Exemplos de projetos</h2>
-        <p class="text-primary-200 text-lg max-w-2xl mx-auto">Veja como ficam sites profissionais criados para negócios locais. Estes são modelos ilustrativos do tipo de resultado entregue.</p>
+        <span class="inline-block text-accent-500 text-sm font-semibold tracking-wider uppercase mb-3">Portfólio</span>
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary-900 mb-4">Exemplos de projetos</h2>
+        <p class="text-slate-500 text-lg max-w-2xl mx-auto">Veja como ficam sites profissionais criados para negócios locais. Estes são modelos ilustrativos do tipo de resultado entregue.</p>
       </div>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Project 1 -->
-        <a href="https://portifolio-prof-andre.vercel.app/" target="_blank" rel="noopener noreferrer" class="group bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:shadow-xl hover:shadow-black/20 transition-shadow duration-300 cursor-pointer block">
-          <div class="aspect-video bg-gradient-to-br from-[#0F2B46] to-[#1E3A5F] flex items-center justify-center">
-            <div class="text-center px-6">
-              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-[#F97316] mx-auto mb-2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-              <span class="text-[#FDBA74] text-sm font-medium">Preview do projeto</span>
-            </div>
+        <a href="https://portifolio-prof-andre.vercel.app/" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-md shadow-slate-900/5 hover:shadow-2xl hover:shadow-slate-900/15 transition-shadow duration-300 cursor-pointer block">
+          <div class="aspect-video overflow-hidden">
+            <img src="prof_andre_preview.png" alt="Preview do site Prof. André Moreira" class="w-full h-full object-cover object-top" />
           </div>
           <div class="p-6">
-            <span class="inline-block text-xs font-semibold text-[#F97316] bg-[#FFF7ED] px-3 py-1 rounded-full mb-3">Professor Particular</span>
-            <h3 class="font-heading font-bold text-white mb-2">Exemplo: Prof. André Moreira</h3>
-            <p class="text-primary-300 text-sm mb-4">Aulas particulares de Matemática e Física com preços, depoimentos e contato por WhatsApp.</p>
-            <span class="inline-flex items-center gap-1 text-sm font-medium text-primary-600 group-hover:text-primary-700 transition-colors duration-200">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="inline-block text-xs font-semibold text-[#F97316] bg-[#FFF7ED] px-3 py-1 rounded-full">Professor Particular</span>
+              <span class="inline-block text-xs font-semibold text-accent-500 bg-accent-500/10 px-3 py-1 rounded-full border border-accent-500/20">Plano Apareça</span>
+            </div>
+            <h3 class="font-heading font-bold text-primary-900 mb-2">Exemplo: Prof. André Moreira</h3>
+            <p class="text-slate-500 text-sm mb-4">Aulas particulares de Matemática e Física com preços, depoimentos e contato por WhatsApp.</p>
+            <span class="inline-flex items-center gap-1 text-sm font-medium text-accent-600 group-hover:text-accent-700 transition-colors duration-200">
               Ver projeto
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </span>
@@ -652,7 +653,7 @@
         </a>
 
         <!-- Project 2 -->
-        <div class="group bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:shadow-xl hover:shadow-black/20 transition-shadow duration-300 cursor-pointer">
+        <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-md shadow-slate-900/5 hover:shadow-2xl hover:shadow-slate-900/15 transition-shadow duration-300 cursor-pointer">
           <div class="aspect-video bg-gradient-to-br from-accent-100 to-accent-200 flex items-center justify-center">
             <div class="text-center px-6">
               <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-accent-400 mx-auto mb-2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
@@ -661,9 +662,9 @@
           </div>
           <div class="p-6">
             <span class="inline-block text-xs font-semibold text-accent-600 bg-accent-50 px-3 py-1 rounded-full mb-3">Academia</span>
-            <h3 class="font-heading font-bold text-white mb-2">Exemplo: Studio de Treino</h3>
-            <p class="text-primary-300 text-sm mb-4">Modelo de landing page com grade de horários e planos de treino.</p>
-            <span class="inline-flex items-center gap-1 text-sm font-medium text-primary-600 group-hover:text-primary-700 transition-colors duration-200">
+            <h3 class="font-heading font-bold text-primary-900 mb-2">Exemplo: Studio de Treino</h3>
+            <p class="text-slate-500 text-sm mb-4">Modelo de landing page com grade de horários e planos de treino.</p>
+            <span class="inline-flex items-center gap-1 text-sm font-medium text-accent-600 group-hover:text-accent-700 transition-colors duration-200">
               Ver projeto
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </span>
@@ -671,7 +672,7 @@
         </div>
 
         <!-- Project 3 -->
-        <div class="group bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:shadow-xl hover:shadow-black/20 transition-shadow duration-300 cursor-pointer">
+        <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-md shadow-slate-900/5 hover:shadow-2xl hover:shadow-slate-900/15 transition-shadow duration-300 cursor-pointer">
           <div class="aspect-video bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center">
             <div class="text-center px-6">
               <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400 mx-auto mb-2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
@@ -680,8 +681,8 @@
           </div>
           <div class="p-6">
             <span class="inline-block text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full mb-3">Salão de Beleza</span>
-            <h3 class="font-heading font-bold text-white mb-2">Seu projeto aqui</h3>
-            <p class="text-primary-300 text-sm mb-4">Seu negócio pode ser o próximo. Fale comigo e vamos conversar.</p>
+            <h3 class="font-heading font-bold text-primary-900 mb-2">Seu projeto aqui</h3>
+            <p class="text-slate-500 text-sm mb-4">Seu negócio pode ser o próximo. Fale comigo e vamos conversar.</p>
             <a href="https://wa.me/5519997414408?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20meu%20site." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-sm font-medium text-accent-600 hover:text-accent-700 transition-colors duration-200">
               Fale comigo
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -803,23 +804,6 @@
 
   <!-- ==================== SCRIPTS ==================== -->
   <script>
-    // Mobile menu toggle
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    menuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-      const isOpen = !mobileMenu.classList.contains('hidden');
-      menuToggle.setAttribute('aria-expanded', isOpen);
-    });
-
-    // Close mobile menu on link click
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        menuToggle.setAttribute('aria-expanded', 'false');
-      });
-    });
 
     // FAQ accordion
     document.querySelectorAll('.faq-toggle').forEach(button => {
@@ -844,19 +828,53 @@
       });
     });
 
-    // Navbar scroll effect
-    const navbar = document.querySelector('nav');
-    let lastScroll = 0;
+    // Header scroll effect
+    const header = document.getElementById('header');
+    const logoText = document.getElementById('logo-text');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const menuBtn = document.getElementById('menu-btn');
 
     window.addEventListener('scroll', () => {
-      const currentScroll = window.scrollY;
-      if (currentScroll > 50) {
-        navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.08)';
+      const scrolled = window.scrollY > 50;
+      if (scrolled) {
+        header.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-lg', 'shadow-primary-900/5');
+        header.classList.remove('bg-transparent');
+        logoText.classList.add('text-primary-900');
+        logoText.classList.remove('text-white');
+        menuBtn.classList.add('text-primary-900', 'hover:bg-primary-50');
+        menuBtn.classList.remove('text-white', 'hover:bg-white/10');
+        navLinks.forEach(link => {
+          link.classList.add('text-primary-600', 'hover:text-primary-900');
+          link.classList.remove('text-primary-200', 'hover:text-white');
+        });
       } else {
-        navbar.style.boxShadow = '0 1px 15px rgba(0, 0, 0, 0.03)';
+        header.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-lg', 'shadow-primary-900/5');
+        header.classList.add('bg-transparent');
+        logoText.classList.remove('text-primary-900');
+        logoText.classList.add('text-white');
+        menuBtn.classList.remove('text-primary-900', 'hover:bg-primary-50');
+        menuBtn.classList.add('text-white', 'hover:bg-white/10');
+        navLinks.forEach(link => {
+          link.classList.remove('text-primary-600', 'hover:text-primary-900');
+          link.classList.add('text-primary-200', 'hover:text-white');
+        });
       }
-      lastScroll = currentScroll;
     }, { passive: true });
+
+    // Mobile menu toggle
+    let menuOpen = false;
+    function toggleMenu() {
+      menuOpen = !menuOpen;
+      document.getElementById('mobile-menu').classList.toggle('hidden', !menuOpen);
+      document.getElementById('icon-hamburger').classList.toggle('hidden', menuOpen);
+      document.getElementById('icon-close').classList.toggle('hidden', !menuOpen);
+    }
+    function closeMenu() {
+      menuOpen = false;
+      document.getElementById('mobile-menu').classList.add('hidden');
+      document.getElementById('icon-hamburger').classList.remove('hidden');
+      document.getElementById('icon-close').classList.add('hidden');
+    }
 
     // Fade-in on scroll (IntersectionObserver)
     const fadeEls = document.querySelectorAll('.fade-up');
